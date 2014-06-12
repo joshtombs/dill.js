@@ -24,3 +24,7 @@ module.exports = ->
 
   @Then /^I should see stuff$/, (table) ->
     new @Widgets.List().toHtml()
+
+  @Given /^I am only searching for items with a link I should only see "([^"]*)" items in the list$/, (count) ->
+    new @Widgets.List({root: '#second', customSelector: 'a' }).items()
+    .should.eventually.have.length(count)

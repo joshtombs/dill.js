@@ -20,3 +20,6 @@ Feature: Manipulating Lists
 
   Scenario: Filtering items in a list
     When I filter by "John" I should see "1" element
+
+  Scenario: Getting items in a diverse list
+    Given I am only searching for items with a link I should only see "5" items in the list

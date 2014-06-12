@@ -2,7 +2,7 @@ module.exports = ->
   @Widgets = @Widgets || {}
 
   @Widgets.List = @Widget.List.extend
-    root: "ul"
+    root: "#first"
     childSelector: "li"
 
     toArray: ->

@@ -14,7 +14,11 @@ class @Widget.List extends @Widget
     @items().then (items) -> $.filter(items, iter)
 
   items: ->
-    @findAll(@itemSelector).then (items) =>
+    initialSel = if @customSelector then "#{@itemSelector} #{@customSelector}" else @itemSelector
+    @findAll(initialSel).then (items) =>
       _.map items, (item, i) =>
-        sel = "#{@root} #{@itemSelector}:nth-child(#{i + 1})"
+        sel = if @customSelector then "#{@root} #{@itemSelector}:nth-child(#{i + 1}) #{@customSelector}" else
+              "#{@root} #{@itemSelector}:nth-child(#{i + 1})"
         new @itemClass(root: sel)
+
+
